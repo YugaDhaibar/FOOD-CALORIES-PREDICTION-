@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Calorie Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🍎 Food Calorie Prediction</h1>
+
+    <form action="/predict" method="POST">
+
+        <label>Protein (g)</label>
+        <input type="number" name="Protein" step="any" required>
+
+        <label>Fat (g)</label>
+        <input type="number" name="Fat" step="any" required>
+
+        <label>Carbohydrates (g)</label>
+        <input type="number" name="Carbohydrates" step="any" required>
+
+        <label>Fiber (g)</label>
+        <input type="number" name="Fiber" step="any" required>
+
+        <label>Sugar (g)</label>
+        <input type="number" name="Sugar" step="any" required>
+
+        <button type="submit">Predict Calories</button>
+
+    </form>
+
+    {% if prediction %}
+
+    <div class="result">
+
+        <h2>Predicted Calories</h2>
+
+        <h1>{{ prediction }} kcal</h1>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
